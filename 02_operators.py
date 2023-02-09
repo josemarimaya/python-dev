@@ -16,8 +16,6 @@ print(10//3)
 print(3**5)
 
 
-# Operadores avanzados
-
 # Concatenación de strings
 print("Buenas"+" Tardes")
 
@@ -25,3 +23,38 @@ print("Buenas"+" Tardes")
     ahí sí que tendremos convertir el valor para que sean del mismo tipo"""
 
 print("Buenas "+ str(222))
+
+""" Hay una operación que permite usar String con Integer y son aquellas de multiplicación
+    que lo que permiten es repetir el mismo String por el valor multiplicativo
+    
+    Teniendo claro que no se puede hacer la operación con un Float ej: print("Hola "* 50.5)"""
+
+print("Buenas  " * 5)
+
+
+# Operadores comparativos
+
+print(3 > 4)
+print(3 < 4)
+print(3 >= 4)
+print(3 <= 4)
+print(3 == 4)
+print(3 != 4)
+
+
+""" Cuando tratamos con Strings al comparlos estamos comparando su orden alfabético
+    a no ser que le digas forzosamente que comparas por tamaño de texto"""
+
+print("Hola" > "Adios")
+print(len("Hola") > len("Adios"))
+
+# Operadores lógicos
+
+""" Pequeño repunte de que al contrario que en la mayoría de los
+    lenguajes de programación no se usan los símbolos lógicos sino que 
+    por sintaxis se escriben literalmente"""
+
+print(1>2 and 2<3) # and = &&
+print(1<2 and "Hola" > "Adios") # or = ||
+print(1< 2 or "Hola" > "Adios")
+print(not(1<2)) # not = !
