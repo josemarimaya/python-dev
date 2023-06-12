@@ -14,3 +14,15 @@ print(my_tuple.index(27))
 
 """ La diferencia general entra las tuplas y las listas es que las tuplas son
     colecciones inmutables con lo cual no podremos modificar ningún valor una vez añadido originalmente"""
+
+# Podemos transformas un tupla en una lista tal que podamos modificar algún valor
+
+my_tuple = list(my_tuple)
+
+my_tuple.append("Rojo")
+
+print(my_tuple)
+
+my_tuple = tuple(my_tuple)
+
+print(type(my_tuple))
