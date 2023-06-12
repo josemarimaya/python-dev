@@ -87,3 +87,28 @@ print(ls)
 
 # Comprobamos que la lista copiada se mantiene igual a la que estaba originalmente
 print(copy_list)
+
+"""Tanto como sort como reverse tienen que ejecutarse antes de que se haga el print
+    porque sino no devuelve ningún tipo de valor"""
+
+# Damos la vuelta a la lista
+
+copy_list.reverse()
+
+print(copy_list)
+
+""" Podemos ordenar la listas usando la función .sort() que a priori si estamos usando Integer los ordenará
+    de menor a mayor y si son string los ordenará por orden alfabético"""
+
+ml = [5, 4, 10, 9, 25]
+ml.sort()
+print(ml)
+
+print(ls)
+
+# Creación de sublistas
+
+# En general podemos usar los índices que usamos en el apartado de strings
+print(ml)
+ml_slice = ml[0:3]
+print(ml_slice)
