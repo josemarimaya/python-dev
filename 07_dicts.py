@@ -34,3 +34,28 @@ print(my_dict)
 my_dict["Peliculas"].insert(2,"Wakanda Forever")
 
 print(my_dict)
+
+# Para coger las distintas propiedades del diccionario tenemos lo siguiente
+
+# Los items del diccionario
+print(other_dict.items())
+# Las keys del diccionario
+print(other_dict.keys())
+# Los values del diccionario
+print(other_dict.values())
+
+# Así podremos acceder directamente a ver si los valores están en el diccionario
+
+print("Maya" in other_dict.values())
+
+# Podemos crear un diccionario con claves directamente usando...
+
+# ... si nos olvidamos del doble paréntesis no meterá bien las keys
+
+pict = dict.fromkeys(("Nombre", "Apodo"))
+print(pict)
+
+# La mejor utilidad es crear un diccionario vacío con las claves
+
+other_dict_2 = dict.fromkeys(other_dict)
+print(other_dict_2)
