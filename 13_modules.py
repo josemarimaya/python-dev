@@ -14,3 +14,12 @@ module.resta(7,5) # La llamada se hace parecido a un objeto
 # Y podríamos usarlas directamente
 
 # suma(8,9)
+
+
+import random
+
+ciudades = ["Sevilla", "Cadiz", "Malaga", "Huelva", "Almeria", "Jaen", "Cordoba"]
+
+ciudad_random = random.choice(ciudades)
+
+print(ciudad_random)
