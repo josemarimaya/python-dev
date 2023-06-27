@@ -28,3 +28,22 @@ def print_date(fecha):
 
 
 print_date(now)
+
+print(summer)
+
+today_now = datetime.now()
+
+print(today_now)
+
+# Paque que nos permite operar con fechas
+
+from datetime import timedelta
+
+start_td = timedelta(200, 100, 100, weeks=20)
+end_td = timedelta(300, 100, 100, weeks=30)
+
+# Sobre todo su utilidad es para trabajar con franjas de horarios
+
+print(end_td - start_td)
+print(end_td + start_td)
+print(end_td / start_td)
