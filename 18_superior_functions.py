@@ -16,7 +16,7 @@ value_f = 5
 print(moooore_operations(value_f, operation))
 
 
-## Closures ##
+## CLOSURES ##
 
 def closure_sum(value):
     def add(other_value):
@@ -53,9 +53,47 @@ do_things(5)(4)
 
 ## Built-in Higher Order Functions
 
-numbers = [1,56,648,9]
+numbers = [7, 56, 648, 9]
 
-# Map
 
-map()
+# MAP #
+
+def funfunction(number):
+    print(number)
+
+# El map lo que nos sirve es a iterar la lista de numbers y pasarle cada valor iterable a la funcion que pasamos
+
+map(funfunction, numbers)
+
+""" Además, podemos provocar que los resultados de usar un map se metan en una lista
+    También podemos usar lambds dentro del propio map"""
+
+print(list(map(lambda number: number * 2, numbers)))
+
+
+
+# FILTER #
+
+"""Parecido al filter usado en java funcional, usamos un valor iterable para aplicar los datos
+   Los cuales se pueden almacenar en una varibale lista o usarlo unicamente para printear
+   En vez de definir una función auxiliar se pueden usar lambdas para ello"""
+
+# Hemos hecho un lambda que filter únicamente valores pares
+
+filtration = list(filter(lambda number: number % 2 == 0, numbers))
+
+print(filtration)
+
+
+## REDUCE ##
+
+# Hay que importarla
+
+from functools import reduce
+
+numbers_again = [3,98,74,6,2]
+
+print(reduce(lambda number1, number2: number1 + number2, numbers_again))
+
+
 
