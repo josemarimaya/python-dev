@@ -7,9 +7,9 @@ from collections import Counter
 movies_df = pd.read_csv('lowest_ranked_movies_data.csv')
 
 # Crea un grafo dirigido
-G = nx.DiGraph()
+G = nx.Graph()
 
-G2 = nx.DiGraph()
+G2 = nx.Graph()
 
 def define_atrib(datos):
     keys = []
@@ -27,9 +27,7 @@ def define_atrib(datos):
 #print(define_atrib(movies_df))
 
 def grafo_relacion(diccionario):
-
-    grafo = nx.DiGraph()
-    copy_dict = diccionario
+    grafo = nx.Graph()
     for key in diccionario:
         #print(key)
         # Si no tenemos el nodo lo creeamos
@@ -56,6 +54,8 @@ def visualiza(grafo):
 diccionario = define_atrib(movies_df) 
 gr = grafo_relacion(diccionario)
 visualiza(gr)
+#print(list(nx.enumerate_all_cliques(gr)))
+print(nx.make_max_clique_graph(gr))
 
 def elimina_sin_relacion(grafo):
     g2 = nx.DiGraph()
@@ -64,30 +64,43 @@ def elimina_sin_relacion(grafo):
             g2.add_node(nodo)
     return g2
 
-gr2 = elimina_sin_relacion(gr)
-visualiza(gr2)
+#gr2 = elimina_sin_relacion(gr)
+#visualiza(gr2)
 
 # Calcularemos las comunidades
 
 communities = nx.community.greedy_modularity_communities(gr)
 
+print(enumerate(communities))
 # Usamos el algoritmo de greedy coloring
 
-def greedy_color(c):
+def greedy_color(c, tam_comunidad):
     colors = {}
     for i, comm in enumerate(c):
-        if len(comm) > 1: # Filtramos por aquellas comunidades que no son un nodo únicamente
+        if len(comm) > tam_comunidad: # Filtramos por aquellas comunidades que no son un nodo únicamente
             print(f"Comunidad {i + 1}: {list(comm)}")
             for node in comm:
                 colors[node] = i
     return colors
 
-color_communities = greedy_color(communities)
+color_communities = greedy_color(communities, 1)
+#print(color_communities)
+comunidades_mayores = greedy_color(communities,2)
+
+def dic_comunidades(c, tam_comunidades):
+    comunidades = {}
+    for i , comm in enumerate(c):
+        if len(comm) > tam_comunidades:
+            comunidades[i] = list(comm)
+    return comunidades
+
+print(dic_comunidades(communities, 2))
+
     
 def visualiza_barras(cc):
     # Obtiene las comunidades y sus tamaños
     communities = Counter(cc.values())
-
+    print(communities)
     # Muestra una representación en barras
     plt.bar(communities.keys(), communities.values())
     plt.xlabel('Comunidad')
@@ -95,7 +108,7 @@ def visualiza_barras(cc):
     plt.title('Distribución de nodos en comunidades')
     plt.show()
 
-visualiza_barras(color_communities)
+#visualiza_barras(color_communities)
 
 # Agrega nodos y aristas al grafo
 for index, row in movies_df.iterrows():
